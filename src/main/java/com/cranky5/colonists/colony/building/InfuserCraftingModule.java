@@ -11,13 +11,21 @@ import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Crafting module that filters recipes to only accept those using
- * the Mekanism Metallurgic Infuser as an intermediate crafting block.
+ * Crafting module that accepts recipes using the Mekanism Metallurgic
+ * Infuser as an intermediate crafting block.
  * <p>
- * This ensures the Metallurgist worker only works with recipes
- * that logically belong in the Infuser workflow (alloy production).
+ * Extends {@link AbstractCraftingBuildingModule.Custom} because these
+ * recipes cannot be taught through a vanilla crafting grid — they are
+ * loaded exclusively from datapack {@code crafterrecipes} JSON files.
+ * The {@code Custom} policy class correctly returns an empty set of
+ * supported crafting types, which hides the "teach recipe" button and
+ * ensures only datapack-loaded recipes appear.
+ * <p>
+ * The {@code getCustomRecipeKey()} (inherited) produces
+ * {@code "<jobPath>_<getId()>"} = {@code "metallurgist_infuser_crafting"},
+ * which must match the {@code "crafter"} field in each crafterrecipe JSON.
  */
-public class InfuserCraftingModule extends AbstractCraftingBuildingModule.Crafting {
+public class InfuserCraftingModule extends AbstractCraftingBuildingModule.Custom {
 
     public InfuserCraftingModule(@NotNull final JobEntry jobEntry) {
         super(jobEntry);
@@ -25,18 +33,22 @@ public class InfuserCraftingModule extends AbstractCraftingBuildingModule.Crafti
 
     /**
      * Validates that a recipe uses the Metallurgic Infuser as its intermediate.
-     * When the config option {@code requireInfuser} is disabled, all recipes pass.
+     * <p>
+     * Although the {@code Custom} base class returns {@code false} by default
+     * (preventing manual teaching), this override is kept so that JEI
+     * integration and recipe analysis can correctly identify compatible recipes.
+     * Datapack-loaded recipes bypass this check via {@code addRecipeToList()}.
      */
     @Override
     public boolean isRecipeCompatible(@NotNull final IGenericRecipe recipe) {
-        // If config disables the requirement, accept any recipe assigned to this crafter
-        if (!CrankyConfig.REQUIRE_INFUSER.get()) {
-            return recipe.getIntermediate() != null && recipe.getIntermediate() != Blocks.AIR;
-        }
-
         final var intermediate = recipe.getIntermediate();
         if (intermediate == null || intermediate == Blocks.AIR) {
             return false;
+        }
+
+        // If config disables the infuser requirement, accept any non-AIR intermediate
+        if (!CrankyConfig.REQUIRE_INFUSER.get()) {
+            return true;
         }
 
         final ResourceLocation blockId = BuiltInRegistries.BLOCK.getKey(intermediate);

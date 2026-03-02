@@ -1,6 +1,6 @@
 {
   "type": "recipe",
-  "crafter": "metallurgist",
+  "crafter": "metallurgist_infuser_crafting",
   "inputs": [
     { "item": "mekanism:alloy_reinforced", "count": 1 },
     { "item": "minecraft:obsidian", "count": 1 }

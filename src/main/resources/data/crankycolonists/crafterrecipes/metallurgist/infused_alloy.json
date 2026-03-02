@@ -1,6 +1,6 @@
 {
   "type": "recipe",
-  "crafter": "metallurgist",
+  "crafter": "metallurgist_infuser_crafting",
   "inputs": [
     { "item": "minecraft:iron_ingot", "count": 1 },
     { "item": "minecraft:redstone", "count": 1 }

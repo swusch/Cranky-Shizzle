@@ -5,11 +5,18 @@ import com.cranky5.colonists.block.MetallurgistHutBlock;
 import com.cranky5.colonists.colony.building.InfuserCraftingModule;
 import com.cranky5.colonists.colony.building.MetallurgistBuilding;
 import com.cranky5.colonists.colony.building.MetallurgistBuildingView;
+import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 import com.minecolonies.api.entity.citizen.Skill;
-import com.minecolonies.core.colony.buildings.modules.WorkerBuildingModule;
+import com.minecolonies.core.colony.buildings.modules.AbstractCraftingBuildingModule;
+import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModule;
+import com.minecolonies.core.colony.buildings.modules.SettingsModule;
+import com.minecolonies.core.colony.buildings.modules.settings.CrafterRecipeSetting;
 import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
+import com.minecolonies.core.colony.buildings.moduleviews.CrafterRequestTaskModuleView;
+import com.minecolonies.core.colony.buildings.moduleviews.RequestTaskModuleView;
+import com.minecolonies.core.colony.buildings.moduleviews.SettingsModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import com.minecolonies.core.colony.jobs.JobMechanic;
 import com.minecolonies.core.colony.jobs.views.CrafterJobView;
@@ -85,11 +92,16 @@ public final class ModRegistry {
     //  Building Module Producers
     // ═══════════════════════════════════════════════════════════
 
-    /** Worker assignment module – 1 worker, Knowledge primary / Agility secondary. */
-    private static final BuildingEntry.ModuleProducer<WorkerBuildingModule, WorkerBuildingModuleView> WORKER_MODULE =
+    /**
+     * Worker assignment module – uses {@link CraftingWorkerBuildingModule}
+     * (not plain {@code WorkerBuildingModule}) so the MineColonies request
+     * system can route crafting tasks to this worker.
+     * 1 worker, Knowledge primary / Agility secondary.
+     */
+    private static final BuildingEntry.ModuleProducer<CraftingWorkerBuildingModule, WorkerBuildingModuleView> WORKER_MODULE =
             new BuildingEntry.ModuleProducer<>(
                     "metallurgist_worker",
-                    () -> new WorkerBuildingModule(
+                    () -> new CraftingWorkerBuildingModule(
                             METALLURGIST_JOB.get(),
                             Skill.Knowledge,
                             Skill.Agility,
@@ -104,6 +116,21 @@ public final class ModRegistry {
                     () -> new InfuserCraftingModule(METALLURGIST_JOB.get()),
                     () -> CraftingModuleView::new);
 
+    /** Settings module – provides the recipe-priority/max-stock toggle (requires Warehouse Master research). */
+    private static final BuildingEntry.ModuleProducer<SettingsModule, SettingsModuleView> SETTINGS_MODULE =
+            new BuildingEntry.ModuleProducer<>(
+                    "metallurgist_settings",
+                    () -> new SettingsModule()
+                            .with(AbstractCraftingBuildingModule.RECIPE_MODE, new CrafterRecipeSetting()),
+                    () -> SettingsModuleView::new);
+
+    /** Task-view module – shows pending crafting requests in the hut GUI. */
+    private static final BuildingEntry.ModuleProducer<IBuildingModule, RequestTaskModuleView> TASK_VIEW_MODULE =
+            new BuildingEntry.ModuleProducer<>(
+                    "metallurgist_task_view",
+                    null,
+                    () -> CrafterRequestTaskModuleView::new);
+
     // ═══════════════════════════════════════════════════════════
     //  Buildings
     // ═══════════════════════════════════════════════════════════
@@ -117,6 +144,8 @@ public final class ModRegistry {
                             .setRegistryName(CrankyConstants.rl(CrankyConstants.METALLURGIST_HUT_BLOCK))
                             .addBuildingModuleProducer(WORKER_MODULE)
                             .addBuildingModuleProducer(CRAFTING_MODULE)
+                            .addBuildingModuleProducer(SETTINGS_MODULE)
+                            .addBuildingModuleProducer(TASK_VIEW_MODULE)
                             .createBuildingEntry());
 
     // ═══════════════════════════════════════════════════════════
