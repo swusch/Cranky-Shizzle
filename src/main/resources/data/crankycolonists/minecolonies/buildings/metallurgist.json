@@ -1,0 +1,7 @@
+{
+  "name": "metallurgist",
+  "style": "void",
+  "type": "craftsmanship",
+  "buildingClass": "com.cranky5.colonists.colony.building.MetallurgistBuilding",
+  "maxLevel": 5
+}

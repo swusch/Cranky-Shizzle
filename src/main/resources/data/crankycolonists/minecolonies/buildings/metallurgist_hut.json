@@ -1,0 +1,11 @@
+{
+  "name": "metallurgist_hut",
+  "type": "hut",
+  "block": "crankycolonists:metallurgist_hut",
+  "job": "crankycolonists:metallurgist",
+  "icon": "crankycolonists:metallurgist_hut",
+  "tier": 5,
+  "schematic": "metallurgist_hut",
+  "research": "crankycolonists:metallurgist_hut",
+  "guardType": "none"
+}

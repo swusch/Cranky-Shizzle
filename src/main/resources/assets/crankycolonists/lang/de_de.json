@@ -1,0 +1,23 @@
+{
+  "itemGroup.crankycolonists": "Cranky Colonists",
+
+  "block.crankycolonists.metallurgist_hut": "Metallurgen-Werkstatt",
+  "item.crankycolonists.metallurgist_hut": "Metallurgen-Werkstatt",
+  "item.crankycolonists.creative_icon": "Cranky Colonists Symbol",
+
+  "tooltip.crankycolonists.metallurgist_hut": "Beherbergt einen Metallurgen, der Mekanism-Legierungen herstellt.",
+
+  "com.crankycolonists.building.metallurgist_hut": "Metallurgen-Werkstatt",
+  "com.crankycolonists.building.metallurgist_hut.desc": "Eine Werkstatt, in der der Metallurge Mekanism-Legierungen mit dem Metallurgischen Infuser herstellt.",
+
+  "com.crankycolonists.job.metallurgist": "Metallurge",
+  "com.crankycolonists.job.metallurgist.desc": "Stellt Infused-, Reinforced- und Atomic-Legierungen für die Kolonie her.",
+
+  "hut.crankycolonists.metallurgist": "Metallurgen-Werkstatt",
+
+  "configuration.crankycolonists.metallurgist.enabled": "Metallurge aktivieren",
+  "configuration.crankycolonists.metallurgist.maxRecipes": "Maximale Rezepte",
+  "configuration.crankycolonists.metallurgist.requireInfuser": "Metallurgischen Infuser voraussetzen",
+  "configuration.crankycolonists.metallurgist.requireResearch": "Forschung voraussetzen",
+  "configuration.crankycolonists.general.debugLogging": "Debug-Protokollierung"
+}

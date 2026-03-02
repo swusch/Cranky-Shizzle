@@ -1,0 +1,5 @@
+{
+  "name": "metallurgist",
+  "worker": "minecolonies:citizen",
+  "hut": "crankycolonists:metallurgist_hut"
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:redstone",
+    "minecraft:iron_ingot",
+    "minecraft:copper_ingot",
+    "minecraft:diamond",
+    "minecraft:obsidian",
+    "mekanism:ingot_osmium",
+    "mekanism:alloy_infused",
+    "mekanism:alloy_reinforced"
+  ]
+}

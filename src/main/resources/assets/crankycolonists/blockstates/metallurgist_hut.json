@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "crankycolonists:block/metallurgist_hut" },
+    "facing=south": { "model": "crankycolonists:block/metallurgist_hut", "y": 180 },
+    "facing=west":  { "model": "crankycolonists:block/metallurgist_hut", "y": 270 },
+    "facing=east":  { "model": "crankycolonists:block/metallurgist_hut", "y": 90 }
+  }
+}

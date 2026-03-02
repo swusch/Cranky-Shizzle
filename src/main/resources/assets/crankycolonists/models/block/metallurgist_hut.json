@@ -1,0 +1,63 @@
+{
+  "credit": "Cranky Colonists – Metallurgist Hut",
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "minecraft:block/smithing_table_top",
+    "down":     "minecraft:block/smooth_stone",
+    "up":       "minecraft:block/smithing_table_top",
+    "north":    "minecraft:block/smithing_table_front",
+    "south":    "minecraft:block/smithing_table_side",
+    "east":     "minecraft:block/smithing_table_side",
+    "west":     "minecraft:block/smithing_table_side"
+  },
+  "elements": [
+    {
+      "name": "base",
+      "from": [0, 0, 0],
+      "to": [16, 14, 16],
+      "faces": {
+        "north": { "uv": [0, 2, 16, 16], "texture": "#north" },
+        "east":  { "uv": [0, 2, 16, 16], "texture": "#east" },
+        "south": { "uv": [0, 2, 16, 16], "texture": "#south" },
+        "west":  { "uv": [0, 2, 16, 16], "texture": "#west" },
+        "up":    { "uv": [0, 0, 16, 16], "texture": "#up" },
+        "down":  { "uv": [0, 0, 16, 16], "texture": "#down", "cullface": "down" }
+      }
+    },
+    {
+      "name": "chimney",
+      "from": [11, 14, 11],
+      "to": [15, 19, 15],
+      "faces": {
+        "north": { "uv": [1, 0, 5, 5],  "texture": "minecraft:block/iron_block" },
+        "east":  { "uv": [1, 0, 5, 5],  "texture": "minecraft:block/iron_block" },
+        "south": { "uv": [1, 0, 5, 5],  "texture": "minecraft:block/iron_block" },
+        "west":  { "uv": [1, 0, 5, 5],  "texture": "minecraft:block/iron_block" },
+        "up":    { "uv": [5, 5, 9, 9],  "texture": "minecraft:block/iron_block" }
+      }
+    },
+    {
+      "name": "anvil_base",
+      "from": [2, 14, 4],
+      "to": [8, 15, 12],
+      "faces": {
+        "north": { "uv": [4, 7, 10, 8],  "texture": "minecraft:block/anvil" },
+        "east":  { "uv": [4, 7, 12, 8],  "texture": "minecraft:block/anvil" },
+        "south": { "uv": [4, 7, 10, 8],  "texture": "minecraft:block/anvil" },
+        "west":  { "uv": [4, 7, 12, 8],  "texture": "minecraft:block/anvil" },
+        "up":    { "uv": [4, 4, 10, 12], "texture": "minecraft:block/anvil_top" }
+      }
+    },
+    {
+      "name": "redstone_accent",
+      "from": [0, 14, 0],
+      "to": [16, 16, 1],
+      "faces": {
+        "north": { "uv": [0, 0, 16, 2],  "texture": "minecraft:block/redstone_block" },
+        "up":    { "uv": [0, 0, 16, 1],  "texture": "minecraft:block/redstone_block" },
+        "east":  { "uv": [0, 0, 1, 2],   "texture": "minecraft:block/redstone_block" },
+        "west":  { "uv": [0, 0, 1, 2],   "texture": "minecraft:block/redstone_block" }
+      }
+    }
+  ]
+}

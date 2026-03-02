@@ -1,0 +1,15 @@
+{
+  "name": "metallurgist_hut",
+  "branch": "technology",
+  "parentResearch": "minecolonies:technology/whatyaneed",
+  "researchLevel": 3,
+  "sortOrder": 1,
+  "costs": [
+    { "item": "minecraft:redstone", "count": 64 },
+    { "item": "minecraft:copper_ingot", "count": 32 }
+  ],
+  "effects": [
+    "crankycolonists:metallurgist_hut"
+  ],
+  "icon": "crankycolonists:metallurgist_hut"
+}

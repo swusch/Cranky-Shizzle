@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": { "item": "minecraft:redstone" },
+    "S": { "item": "structurize:sceptergold" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "M": { "item": "mekanism:metallurgic_infuser" },
+    "C": { "item": "minecraft:copper_ingot" }
+  },
+  "pattern": [
+    "RIR",
+    "SMS",
+    "RCR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "crankycolonists:metallurgist_hut"
+  }
+}

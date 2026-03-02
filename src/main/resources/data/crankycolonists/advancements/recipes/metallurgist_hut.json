@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["minecraft:redstone"] }]
+      }
+    },
+    "has_copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["minecraft:copper_ingot"] }]
+      }
+    }
+  },
+  "requirements": [
+    ["has_redstone", "has_copper"]
+  ],
+  "rewards": {
+    "recipes": [
+      "crankycolonists:metallurgist_hut"
+    ]
+  }
+}

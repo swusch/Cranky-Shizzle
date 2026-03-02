@@ -1,0 +1,23 @@
+{
+  "itemGroup.crankycolonists": "Cranky Colonists",
+
+  "block.crankycolonists.metallurgist_hut": "Metallurgist's Workshop",
+  "item.crankycolonists.metallurgist_hut": "Metallurgist's Workshop",
+  "item.crankycolonists.creative_icon": "Cranky Colonists Icon",
+
+  "tooltip.crankycolonists.metallurgist_hut": "Houses a Metallurgist who crafts Mekanism alloys.",
+
+  "com.crankycolonists.building.metallurgist_hut": "Metallurgist's Workshop",
+  "com.crankycolonists.building.metallurgist_hut.desc": "A workshop where the Metallurgist crafts Mekanism alloys using the Metallurgic Infuser.",
+
+  "com.crankycolonists.job.metallurgist": "Metallurgist",
+  "com.crankycolonists.job.metallurgist.desc": "Crafts Infused, Reinforced, and Atomic alloys for the colony.",
+
+  "hut.crankycolonists.metallurgist": "Metallurgist's Workshop",
+
+  "configuration.crankycolonists.metallurgist.enabled": "Enable Metallurgist",
+  "configuration.crankycolonists.metallurgist.maxRecipes": "Max Recipes",
+  "configuration.crankycolonists.metallurgist.requireInfuser": "Require Metallurgic Infuser",
+  "configuration.crankycolonists.metallurgist.requireResearch": "Require Research",
+  "configuration.crankycolonists.general.debugLogging": "Debug Logging"
+}
